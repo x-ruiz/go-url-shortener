@@ -22,7 +22,7 @@ func main() {
 	// fallback
 	yaml := `
 - path: /urlshort
-  url: https://github.com/gophercises/urlshort
+  url: https://github.com/gophercises/urlshorts
 - path: /urlshort-final
   url: https://github.com/gophercises/urlshort/tree/solution
 `
@@ -30,8 +30,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println(yamlHandler)
 	fmt.Println("Starting the server on :8080")
-	http.ListenAndServe(":8080", yamlHandler)
+	http.ListenAndServe(":8080", mapHandler)
 }
 
 func defaultMux() *http.ServeMux {
